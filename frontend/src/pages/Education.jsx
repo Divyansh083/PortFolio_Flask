@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import EducationCard from '../components/EducationCard';
+import { api_url } from '../constant';
 
 const Education = () => {
   const [educationData, setEducationData] = useState([]);
@@ -9,7 +10,7 @@ const Education = () => {
   useEffect(() => {
     const fetchEducationData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/education"); // Use the correct URL
+        const response = await fetch(`${api_url}/education`); // Use the correct URL
         const data = await response.json();
         setEducationData(data);
       } catch (error) {

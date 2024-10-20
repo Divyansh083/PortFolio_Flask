@@ -2,7 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 import ExperienceCard from "../components/ExperienceCard";
-import { fetchExperience } from "../services/api";
+// import { fetchExperience } from "../services/api";
+import { api_url } from "../constant";
 
 const Experience = () => {
   const [experienceData, setExperienceData] = useState([]);
@@ -10,9 +11,11 @@ const Experience = () => {
   useEffect(() => {
     const getExperienceData = async () => {
       try {
-        const response = await fetchExperience();
-        console.log("Fetched Experience Data:", response.data); // Debug line
-        setExperienceData(response.data);
+        // const response = await fetchExperience();
+        // console.log("Fetched Experience Data:", response.data);
+        const response = await fetch(`${api_url}/experience`); // Use the correct URL
+        const data = await response.json(); // Debug line
+        setExperienceData(data);
       } catch (error) {
         console.error("Error fetching experience data:", error);
       }

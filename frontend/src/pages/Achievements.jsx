@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { api_url } from "../constant";
 
 const Achievements = () => {
   const [achievements, setAchievements] = useState([]); // Initialize with an empty array
@@ -6,7 +7,7 @@ const Achievements = () => {
   useEffect(() => {
     const fetchAchievements = async () => {
       try {
-        const response = await fetch("http://localhost:5000/achievements"); // Adjust URL if needed
+        const response = await fetch(`${api_url}/achievements`); // Adjust URL if needed
         const data = await response.json();
         setAchievements(data.achievements || []); // Set achievements data to state
       } catch (error) {

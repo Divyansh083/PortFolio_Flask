@@ -16,7 +16,7 @@ def index():
     return app.send_static_file('index.html')
 
 # Experience Route to Fetch Data from MongoDB
-@app.route('/experience', methods=['GET'])
+@app.route('/api/experience', methods=['GET'])
 def get_experience():
     experience = db.experience.find()
       # Fetching all documents from the "experience" collection
@@ -26,7 +26,7 @@ def get_experience():
         experience_list.append(exp)
     return jsonify(experience_list)
 
-@app.route('/about', methods=['GET'])
+@app.route('/api/about', methods=['GET'])
 def get_about():
     about_data = db.about.find_one()  # Fetch the single document from the "about" collection
     if about_data:
@@ -34,7 +34,7 @@ def get_about():
         return jsonify(about_data)
     return jsonify({})  # Return an empty JSON if no data found
 
-@app.route('/education', methods=['GET'])
+@app.route('/api/education', methods=['GET'])
 def get_education():
     education_data = list(db.education.find())  # Fetch all documents from the "education" collection
     for data in education_data:
@@ -55,7 +55,7 @@ def get_education():
 
     return jsonify(education_data)
 
-@app.route('/projects', methods=['GET'])
+@app.route('/api/projects', methods=['GET'])
 def get_projects():
     projects = db.projects.find()  # Fetch all documents from the "projects" collection
     projects_list = []
@@ -70,7 +70,7 @@ def get_projects():
 
     return jsonify(projects_list)
 
-@app.route('/skills', methods=['GET'])
+@app.route('/api/skills', methods=['GET'])
 def get_skills():
     skills_data = db.skills.find_one()  # Fetch the single document from the "skills" collection
     if skills_data:
@@ -78,7 +78,7 @@ def get_skills():
         return jsonify(skills_data['skills'])  # Return only the skills data as JSON
     return jsonify({})  # Return an empty JSON if no data found
 
-@app.route('/achievements', methods=['GET'])
+@app.route('/api/achievements', methods=['GET'])
 def get_achievements():
     achievements_data = db.achievements.find_one()  # Fetch the single document from the "achievements" collection
     if achievements_data:
@@ -86,7 +86,7 @@ def get_achievements():
         return jsonify(achievements_data)  # Return achievements data
     return jsonify({})  # Return an empty JSON if no data found
 
-@app.route('/extracurricular', methods=['GET'])
+@app.route('/api/extracurricular', methods=['GET'])
 def get_extracurricular():
     extracurricular_data = db.extracurricular.find_one()  # Fetch the single document from the "extracurricular_activities" collection
     if extracurricular_data:

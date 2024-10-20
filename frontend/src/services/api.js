@@ -3,7 +3,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'https://divyanshgupta-portfolio.onrender.com',  // Adjust this if your Flask app is running on a different port
+  baseURL: 'https://divyanshgupta-portfolio.onrender.com/api',  // Adjust this if your Flask app is running on a different port
 });
 
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import img1 from "../images/Profile_Pic.jpg";
+import { api_url } from "../constant";
 
 const About = () => {
   const [aboutData, setAboutData] = useState({});
@@ -7,7 +8,7 @@ const About = () => {
   useEffect(() => {
     const fetchAboutData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/about"); // Make sure to use the correct URL
+        const response = await fetch(`${api_url}/about`); // Make sure to use the correct URL
         const data = await response.json();
         setAboutData(data);
       } catch (error) {

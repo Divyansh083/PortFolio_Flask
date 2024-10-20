@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { api_url } from "../constant";
 
 const Skills = () => {
   const [skills, setSkills] = useState({
@@ -10,7 +11,7 @@ const Skills = () => {
   useEffect(() => {
     const fetchSkills = async () => {
       try {
-        const response = await fetch("http://localhost:5000/skills"); // Adjust URL if needed
+        const response = await fetch(`${api_url}/skills`); // Adjust URL if needed
         const data = await response.json();
         setSkills(data); // Set skills data to state
       } catch (error) {

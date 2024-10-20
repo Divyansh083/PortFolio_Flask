@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ProjectCard from "../components/ProjectCard"; // Ensure this path is correct
+import { api_url } from "../constant";
 
 const Projects = () => {
   const [projects, setProjects] = useState([]); // Initialize state as an empty array
@@ -8,7 +9,7 @@ const Projects = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await fetch("http://localhost:5000/projects"); // Adjust the URL as needed
+        const response = await fetch(`${api_url}/projects`); // Adjust the URL as needed
         const data = await response.json();
         setProjects(data); // Set the projects state with fetched data
       } catch (error) {

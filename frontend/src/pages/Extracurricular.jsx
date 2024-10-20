@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { api_url } from "../constant";
 
 const Extracurricular = () => {
   const [activities, setActivities] = useState([]); // Initialize with an empty array
@@ -6,7 +7,7 @@ const Extracurricular = () => {
   useEffect(() => {
     const fetchExtracurricularActivities = async () => {
       try {
-        const response = await fetch("http://localhost:5000/extracurricular"); // Adjust URL if needed
+        const response = await fetch(`${api_url}/extracurricular`); // Adjust URL if needed
         const data = await response.json();
         setActivities(data.extracurricular_activities || []); // Set activities data to state
       } catch (error) {
