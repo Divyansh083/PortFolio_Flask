@@ -2,7 +2,7 @@ import React from "react";
 
 const ProjectCard = ({ project }) => {
   return (
-    <div className="project-card flex flex-col items-start bg-white border border-gray-500 rounded-lg shadow-md w-80 hover:shadow-lg transition-shadow duration-300 ease-in-out transform hover:-translate-y-1">
+    <div className="project-card flex flex-col items-start bg-white border border-gray-500 rounded-lg shadow-md w-80 hover:shadow-lg transition-shadow duration-300 ease-in-out transform hover:-translate-y-1 max-h">
       {/* <img
         className="object-cover w-full h-40 rounded-t-lg"  // Set a consistent image height
         src={project.image} // If you have an image field, else remove this line

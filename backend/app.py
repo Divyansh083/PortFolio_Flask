@@ -3,17 +3,17 @@ from pymongo import MongoClient
 from flask_cors import CORS
 import os
 
-app = Flask(__name__)  # Correct initialization
+app = Flask(__name__, static_folder='./build', static_url_path='/')  # Correct initialization
 CORS(app)  # Allow requests from React frontend
 
 # MongoDB Connection
 client = MongoClient('mongodb+srv://divInfo:Qwerty123@clusterportfolio.umfnx.mongodb.net/Divyansh')  # Replace with your MongoDB URI
 db = client['Divyansh']  # Your MongoDB database name
-# mongo = PyMongo(app)
+
 
 @app.route('/')
 def index():
-    return jsonify({"message": "Welcome to the Portfolio API!"})
+    return app.send_static_file('index.html')
 
 # Experience Route to Fetch Data from MongoDB
 @app.route('/experience', methods=['GET'])
